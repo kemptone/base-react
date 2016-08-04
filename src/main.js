@@ -1,6 +1,7 @@
 console.log('Hello World!');
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Group from './Group';
 import Counter from './Counter';
 
 document.addEventListener('DOMContentLoaded', function() {
