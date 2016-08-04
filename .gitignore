@@ -3,3 +3,4 @@ node_modues/
 node_modues
 node_modules
 www/bundle.js
+www/bundle.js.map

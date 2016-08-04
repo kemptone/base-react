@@ -3,10 +3,16 @@
 var path = require("path")
 
 var config = {
-    context : path.join(__dirname, 'src')
-    , entry: [
-        './main.js'
-    ]
+    cache : true
+    , debug: true
+    , devServer: {
+        contentBase: "./www"
+    }
+    , devtool: "source-map"
+    , context : path.join(__dirname, 'src')
+    , entry: {
+        app: ["./main.js"]
+    }
     , output: {
         path: path.join(__dirname, 'www')
         , filename: 'bundle.js'

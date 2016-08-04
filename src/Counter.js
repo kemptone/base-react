@@ -5,7 +5,6 @@ import React from 'react';
  */
 class Counter extends React.Component {
     constructor() {
-        debugger
         super();
         this.state = {
             count: 0,
@@ -13,7 +12,6 @@ class Counter extends React.Component {
     }
 
     render() {
-        debugger
         return (
             <button onClick={() => { this.setState({ count: this.state.count + 1 }); }}>
             Count: {this.state.count}
