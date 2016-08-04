@@ -1,6 +1,7 @@
 /* globals __dirname, require */
 
 var path = require("path")
+    , webpack = require("webpack")
 
 var config = {
     cache : true
@@ -10,13 +11,19 @@ var config = {
     }
     , devtool: "source-map"
     , context : path.join(__dirname, 'src')
-    , entry: {
-        app: ["./main.js"]
-    }
+    , entry: [
+        'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000'
+        , './main.js'
+    ]
     , output: {
         path: path.join(__dirname, 'www')
         , filename: 'bundle.js'
     }
+    , plugins: [
+        new webpack.optimize.OccurenceOrderPlugin()
+        , new webpack.HotModuleReplacementPlugin()
+        , new webpack.NoErrorsPlugin()
+    ]
     , module : {
         loaders: [
             {

@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --progres --inline --hot",
+    "startreal": "node server",
     "compile": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
