@@ -1,20 +1,29 @@
-import React from 'react';
-import Counter from './Counter';
+import React from 'react'
 
-/**
- * A counter button: tap the button to increase the count.
- */
-class Group extends React.Component {
+class Counter extends React.Component {
     constructor() {
-        super();
+        super()
+        this.state = {
+            count: 0,
+        }
+
+        setInterval(function() {
+            this.setState({ count : this.state.count+1 })
+        }.bind(this), 2000)
+
     }
 
     render() {
-
         return (
-            <div class="counters">
+            <div>
+                <h1>FARD</h1>
+                <h1>FARD</h1>
+                <button onClick={() => { this.setState({ count: this.state.count + 1 }) }}>
+                    Count: {this.state.count}
+                </button>
+                <div>{this.state.count}</div>
             </div>
-        );
+        )
     }
 }
-export default Group;
+export default Counter

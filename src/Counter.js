@@ -17,6 +17,7 @@ class Counter extends React.Component {
         return (
             <div>
                 <h1>FARD</h1>
+                <h1>FARD</h1>
                 <button onClick={() => { this.setState({ count: this.state.count + 1 }) }}>
                 Count: {this.state.count}
                 </button>
