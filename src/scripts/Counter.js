@@ -3,6 +3,9 @@ import React from 'react'
 class Counter extends React.Component {
     constructor() {
         super()
+
+        debugger
+
         this.state = {
             count: 0,
         }
@@ -19,7 +22,7 @@ class Counter extends React.Component {
                 <h1>FARD</h1>
                 <h1>FARD</h1>
                 <button onClick={() => { this.setState({ count: this.state.count + 1 }) }}>
-                    Count: {this.state.count}
+                Count: {this.state.count}
                 </button>
                 <div>{this.state.count}</div>
             </div>
