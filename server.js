@@ -25,6 +25,12 @@ app.use(webpackHotMiddleware(compiler, {
     heartbeat: 10 * 1000
 }));
 
+;[ "/settings" , "/featured" , "/settings/article" ].forEach( item => {
+    app.get(item, (req, res) => {
+        res.sendFile(__dirname + "/www/index.html")
+    })
+})
+
 var server = app.listen(3000, function() {
     var host = server.address().address;
     var port = server.address().port;

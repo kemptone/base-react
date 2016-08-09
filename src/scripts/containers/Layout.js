@@ -49,6 +49,9 @@ export default class Layout extends React.Component {
                     <li>
                         <Link to="featured">Featured</Link>
                     </li>
+                    <li>
+                        <Link to="settings/article">Article</Link>
+                    </li>
                 </ul>
 
                 <h1>Layout</h1>
