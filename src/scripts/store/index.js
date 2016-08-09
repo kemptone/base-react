@@ -1,4 +1,4 @@
 import { createStore } from "redux"
-import { user } from "../reducers/user"
+import reducer from "../reducers"
 
-export const tsky = createStore(user)
+export default createStore(reducer)

@@ -1,4 +1,7 @@
 import { combineReducers } from "redux"
-import { user } from "./user"
 
-export const todoApp = combineReducers({ user })
+import user from "./user"
+
+export default combineReducers({ 
+    user 
+})
