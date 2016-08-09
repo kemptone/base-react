@@ -28,6 +28,7 @@ export default class Layout extends React.Component {
             <div>
                 <h1>{userProps.first_name}</h1>
                 <h2>{userProps.last_name}</h2>
+                <h2>{userProps.age}</h2>
 
                 <button onClick={this.fetchUser.bind(this)}>load user</button>
 

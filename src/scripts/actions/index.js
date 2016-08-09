@@ -17,7 +17,15 @@ export function fetchUser() {
         // payload : request('http://asdfasdf.sdfdsf.com/user')
         , payload : new Promise(resolve =>
             setTimeout(()=> {
-                resolve([ "fard" ])
+                resolve({
+                    uid: 234251234
+                    , first_name: "Lord"
+                    , last_name: "Fairfax"
+                    , age: 51
+                    , fetching: false
+                    , fetched: true
+                    , error: null
+                })
             }, 1000)
         )
     }
