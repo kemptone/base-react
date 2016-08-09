@@ -24,13 +24,20 @@ export default class Layout extends React.Component {
 
         const userProps = this.props.user
 
+        let button
+
+        if (userProps.pending)
+            button = (<button>loading user...</button>)
+        else
+            button = (<button onClick={this.fetchUser.bind(this)}>load user</button>)
+
         return (
             <div>
                 <h1>{userProps.first_name}</h1>
                 <h2>{userProps.last_name}</h2>
                 <h2>{userProps.age}</h2>
 
-                <button onClick={this.fetchUser.bind(this)}>load user</button>
+                {button}
 
                 <ul>
                     <li>

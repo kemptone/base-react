@@ -4,33 +4,35 @@ export default function reducer(
         , first_name: "Justin"
         , last_name: "Kempton"
         , age: 35
-        , fetching: false
-        , fetched: false
+        , pending: false
         , error: null
     }
     , action
 ) {
 
-    switch (action.type) {
-        case "FETCH_USER_PENDING": {
-            return {
-                ...state
-                , fetching: true
-            }
+    let type = action.type || ""
+
+    if (type.endsWith("_PENDING"))
+        return {
+            ...state
+            , pending: true
+            , error : null
         }
-        case "FETCH_USER_REJECTED": {
-            return {
-                ...state
-                , fetching: false
-                , error: action.payload
-            }
+
+    else if (type.endsWith("_REJECTED"))
+        return {
+            ...state
+            , pending: false
+            , error: action.payload
         }
+
+    switch (type) {
         case "FETCH_USER_FULFILLED": {
             return {
-                ...state,
-                fetching: false,
-                fetched: true,
-                ...action.payload
+                ...state
+                , ...action.payload
+                , pending: false
+                , error : null
             }
         }
         case "SET_USER_NAME": {

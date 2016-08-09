@@ -12,16 +12,17 @@ export function fetchUser() {
     return {
         type: "FETCH_USER"
 
-        // doing it this way to simulate the middleware to handle promise responses
+        // to simulate the middleware to handle promise responses
         // from ajax calls, actual code would be something like
         // payload : request('http://asdfasdf.sdfdsf.com/user')
-        , payload : new Promise(resolve =>
+        , payload : new Promise((resolve, rejected) =>
             setTimeout(()=> {
+                // rejected(Error("Fard Broke it"))
                 resolve({
                     uid: 234251234
                     , first_name: "Lord"
                     , last_name: "Fairfax"
-                    , age: 51
+                    , age: String(Math.random()).substr(2, 2)
                     , fetching: false
                     , fetched: true
                     , error: null
