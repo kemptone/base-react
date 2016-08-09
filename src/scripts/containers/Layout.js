@@ -1,7 +1,7 @@
 import React from 'react'
 import { IndexLink, Link } from "react-router"
 import { connect } from "react-redux"
-import * as user from "../actions"
+import * as actions from "../actions"
 
 
 @connect((store) => {
@@ -17,7 +17,7 @@ export default class Layout extends React.Component {
     }
 
     fetchUser(e) {
-        this.props.dispatch(user.fetchUser())
+        this.props.dispatch(actions.fetchUser())
     }
 
     render() {
