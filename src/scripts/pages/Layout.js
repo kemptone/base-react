@@ -16,14 +16,21 @@ export default class Layout extends React.Component {
         // this.props.dispatch(user.setUserName("FRED" + Math.random()))
     }
 
+    fetchUser(e) {
+        this.props.dispatch(user.fetchUser())
+    }
+
     render() {
 
-        const user = this.props.user
+        const userProps = this.props.user
 
         return (
             <div>
-                <h1>{user.first_name}</h1>
-                <h2>{user.last_name}</h2>
+                <h1>{userProps.first_name}</h1>
+                <h2>{userProps.last_name}</h2>
+
+                <button onClick={this.fetchUser.bind(this)}>load user</button>
+
                 <ul>
                     <li>
                         <IndexLink to="/">Home</IndexLink>

@@ -8,6 +8,21 @@ export function fetchUser() {
   }
 }
 
+export function fetchUser() {
+    return {
+        type: "FETCH_USER"
+
+        // doing it this way to simulate the middleware to handle promise responses
+        // from ajax calls, actual code would be something like
+        // payload : request('http://asdfasdf.sdfdsf.com/user')
+        , payload : new Promise(resolve =>
+            setTimeout(()=> {
+                resolve([ "fard" ])
+            }, 1000)
+        )
+    }
+}
+
 export function setUserName(first_name) {
   return {
     type: 'SET_USER_NAME',
