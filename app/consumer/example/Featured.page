@@ -1,13 +1,41 @@
 import React from 'react'
+import { connect } from "react-redux"
+import * as actions from "./user.actions"
 
+@connect((store) => {
+    return {
+        user: store.user
+    }
+})
 export default class Featured extends React.Component {
 
+    fetchUser(e) {
+        this.props.dispatch(actions.fetchUser())
+    }
 
     render() {
+
+        let button
+        const userProps = this.props.user
+
+        if (userProps.pending)
+            button = (<button>loading user...</button>)
+        else
+            button = (<button onClick={this.fetchUser.bind(this)}>load user</button>)
+
+
         return (
+
             <div>
+
+                <h1>{userProps.first_name}</h1>
+                <h2>{userProps.last_name}</h2>
+                <h2>{userProps.age}</h2>
+
+                {button}
                 <h1>Featured</h1>
             </div>
+
         )
     }
 }
