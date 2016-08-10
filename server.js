@@ -25,11 +25,16 @@ app.use(webpackHotMiddleware(compiler, {
     heartbeat: 10 * 1000
 }));
 
-;[ "/settings" , "/featured" , "/settings/article" ].forEach( item => {
-    app.get(item, (req, res) => {
-        res.sendFile(__dirname + "/www/index.html")
-    })
-})
+function showIndex(req, res) {
+    res.sendFile(__dirname + "/www/index.html")
+}
+
+;[
+    "/settings"
+    , "/featured"
+    , "/settings/article"
+]
+    .forEach( item => app.get(item, showIndex) )
 
 var server = app.listen(3000, function() {
     var host = server.address().address;

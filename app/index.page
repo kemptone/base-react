@@ -4,10 +4,13 @@ import { Router, Route, IndexRoute, hashHistory, browserHistory } from "react-ro
 import { Provider } from "react-redux"
 import store from "./store"
 
-import Layout from './containers/Layout'
-import Featured from './pages/Featured'
-import Settings from './pages/Settings'
+import Layout from './Layout.view'
+import Featured from './consumer/example/Featured.page'
+import Settings from './consumer/example/Settings.page'
 
+setInterval( ()=> {
+    console.log("index loaded")
+}, 1500)
 
 render(
     <Provider store={store}>
@@ -16,7 +19,7 @@ render(
                 <IndexRoute component={Featured}></IndexRoute>
                 <Route path="/featured" name="featured" component={Featured}></Route>
                 <Route path="/settings" name="settings" component={Settings}></Route>
-                <Route path="/settings(/:article)" name="article" component={Settings}></Route>
+                <Route path="/settings(/:article)" name="article" component={Featured}></Route>
             </Route>
         </Router>
     </Provider>

@@ -10,10 +10,10 @@ var config = {
         contentBase: "./www"
     }
     , devtool: "source-map"
-    , context : path.join(__dirname, 'src')
+    , context : path.join(__dirname, 'app')
     , entry: [
         'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000'
-        , './scripts/index.js'
+        , './index.page'
     ]
     , output: {
         path: path.join(__dirname, 'www')
@@ -27,18 +27,21 @@ var config = {
     , module : {
         loaders: [
             {
-                test: /\.js$/
+                test: /\.js?$|\.view$|\.page$|\.actions$|\.reducers$/
                 , exclude: /node_modules/
                 , loaders: ['react-hot', 'babel']
             }
         ]
     }
+    /*
     , resolveLoader: {
         root: [
             path.join(__dirname, 'node_modules')
         ]
     }
+    */
     , rosolve: {
+        extensions : ['', '.js', '.actions', '.reducers', '.view', '.jsx', '.page'],
         root: [
             path.join(__dirname, 'node_modules')
         ]
