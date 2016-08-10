@@ -5,8 +5,8 @@ import { Provider } from "react-redux"
 import store from "./store"
 
 import Layout from './Layout.view'
-import Featured from './consumer/example/Featured.page'
-import Settings from './consumer/example/Settings.page'
+import Settings from './consumer/settings/Settings.page'
+import Featured from './consumer/featured/Featured.page'
 
 setInterval( ()=> {
     console.log("index loaded")
@@ -19,7 +19,7 @@ render(
                 <IndexRoute component={Featured}></IndexRoute>
                 <Route path="/featured" name="featured" component={Featured}></Route>
                 <Route path="/settings" name="settings" component={Settings}></Route>
-                <Route path="/settings(/:article)" name="article" component={Featured}></Route>
+                <Route path="/settings(/:article)" name="article" component={Settings}></Route>
             </Route>
         </Router>
     </Provider>

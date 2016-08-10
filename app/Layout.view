@@ -30,7 +30,7 @@ export default class Layout extends React.Component {
                         <Link to="/featured">Featured</Link>
                     </li>
                     <li>
-                        <Link to="/settings/article">Article</Link>
+                        <Link to="/settings/article">Deep Settings</Link>
                     </li>
                 </ul>
 
