@@ -4,14 +4,12 @@ export default function reducer(
     state = {
         uid: null
         , id : 0
-        , name: "Justin Kempton"
-        , age: 35
+        , first_name: "Justin"
+        , last_name: "Kempton"
         , pending: false
         , error: null
-        , username : ""
-        , website : ""
-        , phone : ""
-        , email : ""
+        , permalink : ""
+        , sites : []
     }
     , action
 ) {
@@ -45,10 +43,9 @@ export default function reducer(
         }
 
         case A.USER_FETCH + A.FULFILLED: {
-            debugger
             return {
                 ...state
-                , ...action.payload
+                , ...action.payload.data
                 , pending: false
                 , error : null
             }
