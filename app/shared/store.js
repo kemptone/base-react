@@ -1,6 +1,6 @@
 import { applyMiddleware, createStore } from "redux"
 import { combineReducers } from "redux"
-import user from "./consumer/settings/settings.reducers"
+import user from "../consumer/settings/settings.reducers"
 
 import thunk from "redux-thunk"
 import promise from "redux-promise-middleware"

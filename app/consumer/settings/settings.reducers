@@ -25,7 +25,6 @@ export default function reducer(
 
         // can listen for global calls
         case A.SPINNER_START : {
-            debugger
             return state
         }
 
