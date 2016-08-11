@@ -1,3 +1,6 @@
+import api from '../../shared/api/callApi'
+import * as A from '../../shared/actionTypes'
+
 // this uses the promise style, doesn't make it easy to split
 // the dispatched objects, but looks clean
 export const fetchUser = () => ({
@@ -24,6 +27,7 @@ export const fetchUser = () => ({
 // this might be great for say a global spinner, but also having local spinner too, say the button itself
 // this is no limit to the broadcast
 export function fetchUser2() {
+
     return (dispatch, getState) => {
 
         // calling dispatch returns the object being dispatched, can't see a reason for it
@@ -48,6 +52,12 @@ export function fetchUser2() {
     }
 }
 
+export function fetchUser3() {
+    return api({
+        type : A.USER_FETCH
+        , url : "https://jsonplaceholder.typicode.com/users/1"
+    })
+}
 
 export const setUserName = (first_name) => ({
     type: 'SET_USER_NAME',

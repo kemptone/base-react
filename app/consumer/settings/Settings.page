@@ -10,7 +10,8 @@ import * as actions from "./settings.actions"
 export default class Featured extends React.Component {
 
     fetchUser(e) {
-        this.props.dispatch(actions.fetchUser2())
+        this.props.dispatch(actions.fetchUser3())
+
     }
 
     render() {
@@ -28,9 +29,9 @@ export default class Featured extends React.Component {
 
             <div>
 
-                <h1>{userProps.first_name}</h1>
-                <h2>{userProps.last_name}</h2>
-                <h2>{userProps.age}</h2>
+                <h1>{userProps.name}</h1>
+                <h2>{userProps.username}</h2>
+                <h2>{userProps.email}</h2>
 
                 {button}
                 <h1>Settings</h1>

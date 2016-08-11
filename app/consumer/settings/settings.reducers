@@ -1,52 +1,56 @@
+import * as A from '../../shared/actionTypes'
+
 export default function reducer(
     state = {
         uid: null
-        , first_name: "Justin"
-        , last_name: "Kempton"
+        , id : 0
+        , name: "Justin Kempton"
         , age: 35
         , pending: false
         , error: null
+        , username : ""
+        , website : ""
+        , phone : ""
+        , email : ""
     }
     , action
 ) {
 
     switch (action.type) {
-        case "RESOLVE_SPINNER" : {
-            // can listen for global calls
+
+        // can listen for global calls
+        case A.SPINNER_STOP : {
             return state
         }
-        case "FETCH_USER_REJECTED": {
+
+        // can listen for global calls
+        case A.SPINNER_START : {
+            debugger
+            return state
+        }
+
+        case A.USER_FETCH + A.REJECTED: {
             return {
                 ...state
                 , pending: false
                 , error : null
             }
         }
-        case "FETCH_USER_PENDING": {
+
+        case A.USER_FETCH + A.PENDING: {
             return {
                 ...state
                 , pending: true
                 , error : null
             }
         }
-        case "FETCH_USER_FULFILLED": {
+
+        case A.USER_FETCH + A.FULFILLED: {
             return {
                 ...state
                 , ...action.payload
                 , pending: false
                 , error : null
-            }
-        }
-        case "SET_USER_NAME": {
-            return {
-                ...state
-                , first_name: action.payload.first_name
-            }
-        }
-        case "SET_USER_AGE": {
-            return {
-                ...state
-                , age: action.payload.age
             }
         }
     }
