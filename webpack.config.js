@@ -33,13 +33,6 @@ var config = {
             }
         ]
     }
-    /*
-    , resolveLoader: {
-        root: [
-            path.join(__dirname, 'node_modules')
-        ]
-    }
-    */
     , rosolve: {
         extensions : ['', '.js', '.actions', '.reducers', '.view', '.jsx', '.page'],
         root: [

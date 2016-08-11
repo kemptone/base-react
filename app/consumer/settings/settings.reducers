@@ -10,23 +10,25 @@ export default function reducer(
     , action
 ) {
 
-    let type = action.type || ""
-
-    if (type.endsWith("_PENDING"))
-        return {
-            ...state
-            , pending: true
-            , error : null
+    switch (action.type) {
+        case "RESOLVE_SPINNER" : {
+            // can listen for global calls
+            return state
         }
-
-    else if (type.endsWith("_REJECTED"))
-        return {
-            ...state
-            , pending: false
-            , error: action.payload
+        case "FETCH_USER_REJECTED": {
+            return {
+                ...state
+                , pending: false
+                , error : null
+            }
         }
-
-    switch (type) {
+        case "FETCH_USER_PENDING": {
+            return {
+                ...state
+                , pending: true
+                , error : null
+            }
+        }
         case "FETCH_USER_FULFILLED": {
             return {
                 ...state
