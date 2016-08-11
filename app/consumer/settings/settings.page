@@ -10,7 +10,7 @@ import * as actions from "./settings.actions"
 export default class Featured extends React.Component {
 
     fetchUser(e) {
-        this.props.dispatch(actions.fetchUser3())
+        this.props.dispatch(actions.fetchUser())
 
     }
 

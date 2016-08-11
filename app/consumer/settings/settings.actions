@@ -3,7 +3,7 @@ import * as A from '../../shared/actionTypes'
 
 // this uses the promise style, doesn't make it easy to split
 // the dispatched objects, but looks clean
-export const fetchUser = () => ({
+export const fetchUserPromise = () => ({
     type: "FETCH_USER"
 
     // to simulate the middleware to handle promise responses
@@ -52,19 +52,10 @@ export function fetchUser2() {
     }
 }
 
-export function fetchUser3() {
+export function fetchUser() {
     return api({
         type : A.USER_FETCH
-        , url : "https://jsonplaceholder.typicode.com/users/1"
+        // , url : "https://jsonplaceholder.typicode.com/users/1"
+        , url : "http://dev-api.creditsky.us/users/justin"
     })
 }
-
-export const setUserName = (first_name) => ({
-    type: 'SET_USER_NAME',
-    payload: { first_name : first_name }
-})
-
-export const setUserAge = (age) => ({
-    type: 'SET_USER_AGE',
-    payload: { age },
-})

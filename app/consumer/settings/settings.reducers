@@ -45,6 +45,7 @@ export default function reducer(
         }
 
         case A.USER_FETCH + A.FULFILLED: {
+            debugger
             return {
                 ...state
                 , ...action.payload
