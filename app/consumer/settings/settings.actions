@@ -13,8 +13,6 @@ export const fetchUser = () => ({
                 , first_name: "Lord"
                 , last_name: "Fairfax"
                 , age: String(Math.random()).substr(2, 2)
-                , fetching: false
-                , fetched: true
                 , error: null
             })
         }, 1000)
@@ -22,11 +20,16 @@ export const fetchUser = () => ({
 
 })
 
+// this uses the thunk middleware, it's cool because you can dispatch as many calls as you want
+// this might be great for say a global spinner, but also having local spinner too, say the button itself
+// this is no limit to the broadcast
 export function fetchUser2() {
-    return (dispatch) => {
+    return (dispatch, getState) => {
+
+        // calling dispatch returns the object being dispatched, can't see a reason for it
+        dispatch({ type : "SPINNER_START" })
 
         setTimeout(()=> {
-
             dispatch({
                 type : "FETCH_USER_FULFILLED"
                 , payload : {
@@ -34,8 +37,6 @@ export function fetchUser2() {
                     , first_name: "Lord"
                     , last_name : "Fairfax"
                     , age       : String(Math.random()).substr(2, 2)
-                    , fetching  : false
-                    , fetched   : true
                     , error     : null
                 }
             })
